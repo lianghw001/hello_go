@@ -81,3 +81,5 @@ $ hello
 
 
 [Git日常使用总结](https://gitee.com/lianghwsysu/course_note_mad/blob/master/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/Git%E6%97%A5%E5%B8%B8%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93.md)
+
+[学习GO语言遇到的问题](https://github.com/lianghw001/hello_go/blob/master/%E5%AD%A6%E4%B9%A0GO%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98.md)
