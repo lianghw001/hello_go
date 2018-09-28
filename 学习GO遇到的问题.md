@@ -55,6 +55,14 @@ for {
 	}
 ````
 
+range 形式
+
+````
+for i, v := range pow {
+		fmt.Printf("2**%d = %d\n", i, v)
+	}
+````
+
 ## 4. 输出
 
 ````
@@ -68,3 +76,9 @@ fmt.Printf(num)　　//error
 ## 5. switch
 
 只执行只执行选定的case，除非fallthrough
+
+## 6. defer
+
+外层函数return时调用
+
+````defer fmt.Println(i)````
