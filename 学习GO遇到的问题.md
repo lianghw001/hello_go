@@ -82,3 +82,15 @@ fmt.Printf(num)　　//error
 外层函数return时调用
 
 ````defer fmt.Println(i)````
+
+## 7. 整型转字符串
+
+````
+// 通过Itoa方法转换
+str1 := strconv.Itoa(i)
+
+// 通过Sprintf方法转换
+str2 := fmt.Sprintf("%d", i)
+ 
+````
+
