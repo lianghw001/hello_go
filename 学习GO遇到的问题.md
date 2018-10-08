@@ -1,6 +1,8 @@
  # 学习GO遇到的问题
 
-## 1. 变量初始化和声明
+## 变量初始化和声明
+- rune，相当于char
+
 var 和 := (简短声明)的的区别
 
 
@@ -19,7 +21,7 @@ var 和 := (简短声明)的的区别
 :=只能在声明“局部变量”的时候使用
 
 
-## 2. 常量
+##  常量
 
 常量的声明与变量类似，只不过是使用 const 关键字
 
@@ -102,3 +104,60 @@ var s []int = a[1:4]     //[0 0 0],半开区间，包括第一个元素，但排
 
 ````
 
+
+## 信道
+
+- 创建信道
+
+````
+ch := make(chan int)
+
+````
+
+- 带缓冲的信道
+````
+ch := make(chan int, 100)
+
+````
+
+- 传值,自动阻塞
+
+
+````
+ch <- v    // 将 v 发送至信道 ch。
+v := <-ch  // 从 ch 接收值并赋予 v。
+
+````
+
+- 当接收者需要知道想知道是否关闭时，发送者需要close信道
+````
+func fibonacci(n int, c chan int) {
+	x, y := 0, 1
+	for i := 0; i < n; i++ {
+		c <- x
+		x, y = y, x+y
+	}
+	close(c)
+}
+
+func main() {
+	c := make(chan int, 10)
+	go fibonacci(cap(c), c)
+	for i := range c {
+		fmt.Println(i)
+	}
+}
+
+````
+
+- select，随机执行非阻塞的分支
+````
+select {
+		case c <- x:
+			x, y = y, x+y
+		case <-quit:
+			fmt.Println("quit")
+			return
+		}
+
+````
