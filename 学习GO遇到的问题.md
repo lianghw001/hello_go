@@ -98,13 +98,54 @@ str2 := fmt.Sprintf("%d", i)
 
 ## 数组与切片
 
-````
-var a [5]int             //[0 0 0 0 0]
-var s []int = a[1:4]     //[0 0 0],半开区间，包括第一个元素，但排除最后一个元素。
+	````
+	var a [5]int {1,2,3,4,5}            //[1 2 3 4 5] 数组
+	var s []int = a[1:4]     //[2 3 4],切片：半开区间，包括第一个元素，但排除最后一个元素。
+	var b := s		//切片是引用
+	k := make([]int, 5)     //make 函数会分配一个元素为零值的数组并返回一个引用了它的切片	
+	s = append(s, 6，7)  	//[2 3 4 6 7]，自动扩展
+	for i, v := range s { 	//range遍历，返回下标，和值
+		fmt.Printf("2**%d = %d\n", i, v)
+	}
+	````
+## 映射 map
+	````
+	m := make(map[string]int)
+	m["Bell Labs"] = 8
+	fmt.Println(m["Bell Labs"])
+	delete(m,"Bell Labs")		//删除元素
+	elem, ok := m["Bell Labs"]	//元素检查
+	package main
+	````
+## 函数的闭包
+	````
+	import "fmt"
 
-````
+	func adder() func(int) int {
+		sum := 0
+		return func(x int) int {
+			sum += x
+			return sum
+		}
+	}
 
+	func main() {
+		pos, neg := adder(), adder()
+		for i := 0; i < 10; i++ {
+			fmt.Println(
+				pos(i),
+				neg(-2*i),
+			)
+		}
+	}
+	````	
 
+## 方法
+	````
+	func (v Vertex) Abs() float64 {//Vertxx结构体的方法
+		return math.Sqrt(v.X*v.X + v.Y*v.Y)
+	}
+	````
 ## 信道
 
 - 创建信道
