@@ -34,8 +34,16 @@ const Pi = 3.14
 const Truth = true
 ````
 
-## 3. 没有while，用for
-for 初始化语句和后置语句是可选的。
+## if，判断前可以有一个短声明
+
+	````
+	if v := 0; v == 0 {
+	return v
+	}
+
+	````
+## 没有while，用for
+- for 初始化语句和后置语句是可选的。
 
 ````
  for ; sum < 1000; {
@@ -149,6 +157,10 @@ str2 := fmt.Sprintf("%d", i)
 	func (v *Vertex) Scale(f float64) {//指针接收者，可以修改原来对象的值（若不是指针，只会修改传进来的副本）
 		v.X = v.X * f
 		v.Y = v.Y * f
+	}
+	
+	func (v int) Abs() float64 {//报错，不可以给非本地变量说明方法
+		return float64(v)
 	}
 	````
 	
