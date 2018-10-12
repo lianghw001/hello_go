@@ -151,6 +151,31 @@ str2 := fmt.Sprintf("%d", i)
 		v.Y = v.Y * f
 	}
 	````
+	
+## 接口
+	````
+	type I interface {
+		M()
+	}
+	interface {}//空接口
+	var i I
+	i = "hello"
+	
+	//类型断言
+	t := i.(string)  //t=="hello"
+	w := i.(int)	//i没有int，引发pannic
+	q, ok := i.(int)//不引发panic
+	
+	
+	switch v := t.(type) {
+	case int:
+		//
+	case string:
+		//执行
+	default:
+		//
+	}
+	````
 ## 信道
 
 - 创建信道
