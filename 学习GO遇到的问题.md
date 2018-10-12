@@ -141,9 +141,14 @@ str2 := fmt.Sprintf("%d", i)
 	````	
 
 ## 方法
+- 一般使用指针作为接收者
 	````
 	func (v Vertex) Abs() float64 {//Vertxx结构体的方法
 		return math.Sqrt(v.X*v.X + v.Y*v.Y)
+	}
+	func (v *Vertex) Scale(f float64) {//指针接收者，可以修改原来对象的值（若不是指针，只会修改传进来的副本）
+		v.X = v.X * f
+		v.Y = v.Y * f
 	}
 	````
 ## 信道
