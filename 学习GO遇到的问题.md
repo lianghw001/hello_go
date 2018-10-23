@@ -1,4 +1,18 @@
  # 学习GO遇到的问题
+````
+
+````
+## 输入输出
+````
+import "fmt"
+var str string
+fmt.Scanln(&str)
+fmt.Println(str)
+
+
+````
+
+
 
 ## 多人开发
 
