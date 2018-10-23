@@ -1,5 +1,16 @@
  # 学习GO遇到的问题
 
+## 多人开发
+
+多人开发同一个项目agenda，fork别人的项目后
+
+golang的import的文件就错了
+````
+"github.com/cyulei/agenda/cmd"
+"github.com/lianghw001/agenda/cmd"
+````
+- 解决方法：未解决
+
 ## 变量初始化和声明
 - rune，相当于char
 
